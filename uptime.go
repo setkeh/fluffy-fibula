@@ -18,7 +18,7 @@ func Load() (int64) {
 
   func Data(i int64) (string) {
 
-  	iu := Load()
+  	iu := i
 
 	d := iu / (24 * 60 * 60)
 	ds := strconv.FormatInt(d, 10)
