@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	//"strconv"
 	"syscall"
+	"time"
 )
 
 func Load() (int64) {
@@ -16,18 +17,9 @@ func Load() (int64) {
 	return info.Uptime
 }
 
-  func Data(i int64) (string) {
+func Data(i int64) (string) {
+  	q := time.Duration(i)
+	d := fmt.Sprint(q * time.Second)
 
-  	iu := i
-
-	d := iu / (24 * 60 * 60)
-	ds := strconv.FormatInt(d, 10)
-	h := iu/(60*60) - 24*d
-	hs := strconv.FormatInt(h, 10)
-	m := iu/60 - 24*60*d - 60*h
-	ms := strconv.FormatInt(m, 10)
-	s := iu - 24*60*60*d - 60*60*h - 60*m
-	ss := strconv.FormatInt(s, 10)
-
-	return ds  + " Days "  + hs + " Hours " + ms + " Minutes " + ss + " Seconds"
-  }
+	return d
+}

@@ -15,7 +15,8 @@ func main() {
 		panic(err)
 	}
 
-	err = pb.PushNote(devs[0].Iden, "Uptime:", Data(Load()))
+	day := Data(Load())
+	err = pb.PushNote(devs[0].Iden, "Uptime:", day)
 	if err != nil {
 		panic(err)
 	}
